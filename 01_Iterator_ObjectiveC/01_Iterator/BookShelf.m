@@ -97,6 +97,52 @@
     return count;
 }
 
+- (void)enumerateObjectsWithOptions:(NSEnumerationOptions)opts
+                         usingBlock:(void (^)(Book * obj, NSUInteger idx, BOOL *stop))block
+{
+    NSUInteger count = 0;
+    __block BOOL shouldStop = NO;
+    BOOL isReverse = (opts & NSEnumerationReverse);
+    id<NSFastEnumeration> enumerator = self;
+    
+    /* If we are enumerating in reverse, use the reverse enumerator for fast
+     * enumeration. */
+    {
+        
+        dispatch_queue_t queue = NULL;
+        dispatch_group_t queueGroup = NULL;
+        if (opts & NSEnumerationConcurrent)
+        {
+            queue = dispatch_get_global_queue(0, 0);
+            queueGroup = dispatch_group_create();
+        }
+        for (id obj in enumerator) {
+            if (queue != NULL) {
+                dispatch_group_async(queueGroup, queue, ^{
+                    if (shouldStop == NO){
+                        block(obj, count, &shouldStop);
+                    }
+                });
+            }
+            else {
+                block(obj, count, &shouldStop);
+            }
+            
+            if (isReverse) {
+                count--;
+            }else {
+                count++;
+            }
+            if (shouldStop) {
+                break;
+            }
+        }
+        if (queue != NULL) {
+            dispatch_group_wait(queueGroup, DISPATCH_TIME_FOREVER);
+        }
+    }
+}
+
 @end
 
 

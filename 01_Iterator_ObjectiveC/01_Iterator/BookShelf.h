@@ -32,6 +32,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSEnumerator<Book *> *)objectEnumerator;
 
+/*
+ 使用 队列组进行快速遍历
+ */
+- (void)enumerateObjectsWithOptions:(NSEnumerationOptions)opts
+                         usingBlock:(void (^)(Book * obj, NSUInteger idx, BOOL *stop))block;
 @end
 
 

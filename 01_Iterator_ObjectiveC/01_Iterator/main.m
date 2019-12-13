@@ -11,6 +11,39 @@
 #import "BookShelf.h"
 
 
+void test1(){
+    NSLog(@"begin");
+    NSArray *array = @[@"121",@"341",@"e1313"];
+    [array enumerateObjectsWithOptions:1 usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"%@ - %@",obj, [NSThread currentThread]);
+    }];
+    NSLog(@"end");
+}
+
+void test2(BookShelf *books){
+    NSLog(@"begin");
+    [books enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(Book * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"obj.name-> %@ %@", obj.name, [NSThread currentThread]);
+    }];
+    NSLog(@"end");
+}
+
+
+void test3(BookShelf *books){
+    NSEnumerator *enumerator = books.objectEnumerator;
+    Book *book = nil;
+    while ((book = enumerator.nextObject)) {
+        NSLog(@"%@",book.name);
+    }
+
+    for (Book *b in books) {
+        NSLog(@"book.name->%@",b.name);
+    }
+
+    for (Book *b in books.objectEnumerator) {
+        NSLog(@"book.name2->%@",b.name);
+    }
+}
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
@@ -29,19 +62,11 @@ int main(int argc, const char * argv[]) {
         [books appendBook:book2];
         [books appendBook:book3];
         
-        NSEnumerator *enumerator = books.objectEnumerator;
-        Book *book = nil;
-        while ((book = enumerator.nextObject)) {
-            NSLog(@"%@",book.name);
-        }
+//        test1();
+//
+//        test2(books);
         
-        for (Book *b in books) {
-            NSLog(@"book.name->%@",b.name);
-        }
-        
-        for (Book *b in books.objectEnumerator) {
-            NSLog(@"book.name2->%@",b.name);
-        }
+        test3(books);
        
     }
     return 0;
