@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BD5022BC239D483600EB4AB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5022BB239D483600EB4AB6 /* main.m */; };
+		BD50231E23A3EE7600EB4AB6 /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = BD50231D23A3EE7600EB4AB6 /* Banner.m */; };
+		BD50232123A3EF7D00EB4AB6 /* PrintBaner.m in Sources */ = {isa = PBXBuildFile; fileRef = BD50232023A3EF7D00EB4AB6 /* PrintBaner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		BD5022B8239D483600EB4AB6 /* _2_Adapter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = _2_Adapter; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD5022BB239D483600EB4AB6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BD50231C23A3EE7600EB4AB6 /* Banner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Banner.h; sourceTree = "<group>"; };
+		BD50231D23A3EE7600EB4AB6 /* Banner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Banner.m; sourceTree = "<group>"; };
+		BD50231F23A3EF7D00EB4AB6 /* PrintBaner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrintBaner.h; sourceTree = "<group>"; };
+		BD50232023A3EF7D00EB4AB6 /* PrintBaner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrintBaner.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				BD5022BB239D483600EB4AB6 /* main.m */,
+				BD50231F23A3EF7D00EB4AB6 /* PrintBaner.h */,
+				BD50232023A3EF7D00EB4AB6 /* PrintBaner.m */,
+				BD50231C23A3EE7600EB4AB6 /* Banner.h */,
+				BD50231D23A3EE7600EB4AB6 /* Banner.m */,
 			);
 			path = _2_Adapter;
 			sourceTree = "<group>";
@@ -119,6 +129,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD5022BC239D483600EB4AB6 /* main.m in Sources */,
+				BD50231E23A3EE7600EB4AB6 /* Banner.m in Sources */,
+				BD50232123A3EF7D00EB4AB6 /* PrintBaner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PrintBaner.h"
+
 
 /*
  * Adapter模式，也被称作Wrapper模式
@@ -17,8 +19,10 @@
  */
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        
+        PrintBaner *baner = [[PrintBaner alloc] initWithContent:@"Hello, World!"];
+        [baner printStong];
+        [baner printWeak];
     }
     return 0;
 }
